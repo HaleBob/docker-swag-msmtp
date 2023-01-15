@@ -1,0 +1,40 @@
+name: Check for new upstream release
+
+on:
+  schedule:
+    - cron: "13 1 * * *"
+  workflow_dispatch:
+
+
+jobs:
+
+  check_upstream:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.REPO_TOKEN }}
+
+      - name: Get release versions
+        id: release_versions
+        run: |
+          upstream_release=$(curl -sL https://api.github.com/repos/linuxserver/docker-swag/releases/latest | jq -r ".tag_name")
+          echo "UPSTREAM_RELEASE=$upstream_release" >> $GITHUB_OUTPUT
+          echo "UPSTREAM_RELEASE=$upstream_release" >> $GITHUB_ENV
+          echo "Upstream release = $upstream_release"
+          our_release=$(<release-versions/VERSION)
+          echo "OUR_RELEASE=$our_release" >> $GITHUB_OUTPUT
+          echo "Our release = $our_release"
+            
+      - name: Commit new upstream version
+        if: ${{ (steps.release_versions.outputs.UPSTREAM_RELEASE != 'null') && (steps.release_versions.outputs.OUR_RELEASE != steps.release_versions.outputs.UPSTREAM_RELEASE) }}
+        run: |
+          # Update release version
+          echo ${{ steps.release_versions.outputs.upstream_release }} > release-versions/VERSION
+          git config --global user.name "HaleBob"
+          git config --global user.email "HaleBob@users.noreply.github.com"
+          git commit -am 'New upstream version ${{ env.UPSTREAM_RELEASE }}'
+          git tag -a ${{ env.UPSTREAM_RELEASE }} -m 'New upstream version ${{ env.UPSTREAM_RELEASE }}'
+          git push
+          git push origin ${{ env.UPSTREAM_RELEASE }}

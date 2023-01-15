@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+# make sure config directory for msmtp exists
+mkdir -p /config/msmtp
+
+# copy default config file if it doesn't exist
+if [[ ! -f /config/msmtp/msmtprc ]]; then
+    cp /defaults/msmtp/msmtprc.sample /config/msmtp/msmtprc
+    ln -s /config/msmtp/msmtprc /etc/msmtprc
+fi
