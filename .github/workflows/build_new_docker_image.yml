@@ -50,19 +50,19 @@ jobs:
           context: "${{ github.workspace }}"
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USER }}/docker-swag-msmtp:latest
-            ${{ secrets.DOCKERHUB_USER }}/docker-swag-msmtp:${{ env.NEW_VERSION }}
-            ${{ secrets.DOCKERHUB_USER }}/docker-swag-msmtp:${{ env.MAIN_VERSION }}
-            ${{ secrets.DOCKERHUB_USER }}/docker-swag-msmtp:version-${{ env.MAIN_VERSION }}
-            ${{ secrets.DOCKERHUB_USER }}/docker-swag-msmtp:amd64-${{ env.NEW_VERSION }}
-            ${{ secrets.DOCKERHUB_USER }}/docker-swag-msmtp:amd64-${{ env.MAIN_VERSION }}
-            ${{ secrets.DOCKERHUB_USER }}/docker-swag-msmtp:amd64-version-${{ env.MAIN_VERSION }}
-            ${{ secrets.DOCKERHUB_USER }}/docker-swag-msmtp:amd64-latest
-            ghcr.io/${{ env.GH_OWNER_LC }}/docker-swag-msmtp:latest
-            ghcr.io/${{ env.GH_OWNER_LC }}/docker-swag-msmtp:${{ env.NEW_VERSION }}
-            ghcr.io/${{ env.GH_OWNER_LC }}/docker-swag-msmtp:${{ env.MAIN_VERSION }}
-            ghcr.io/${{ env.GH_OWNER_LC }}/docker-swag-msmtp:version-${{ env.MAIN_VERSION }}
-            ghcr.io/${{ env.GH_OWNER_LC }}/docker-swag-msmtp:amd64-${{ env.NEW_VERSION }}
-            ghcr.io/${{ env.GH_OWNER_LC }}/docker-swag-msmtp:amd64-${{ env.MAIN_VERSION }}
-            ghcr.io/${{ env.GH_OWNER_LC }}/docker-swag-msmtp:amd64-version-${{ env.MAIN_VERSION }}
-            ghcr.io/${{ env.GH_OWNER_LC }}/docker-swag-msmtp:amd64-latest
+            ${{ secrets.DOCKERHUB_USER }}/swag-msmtp:latest
+            ${{ secrets.DOCKERHUB_USER }}/swag-msmtp:${{ env.NEW_VERSION }}
+            ${{ secrets.DOCKERHUB_USER }}/swag-msmtp:${{ env.MAIN_VERSION }}
+            ${{ secrets.DOCKERHUB_USER }}/swag-msmtp:version-${{ env.MAIN_VERSION }}
+            ${{ secrets.DOCKERHUB_USER }}/swag-msmtp:amd64-${{ env.NEW_VERSION }}
+            ${{ secrets.DOCKERHUB_USER }}/swag-msmtp:amd64-${{ env.MAIN_VERSION }}
+            ${{ secrets.DOCKERHUB_USER }}/swag-msmtp:amd64-version-${{ env.MAIN_VERSION }}
+            ${{ secrets.DOCKERHUB_USER }}/swag-msmtp:amd64-latest
+            ghcr.io/${{ env.GH_OWNER_LC }}/swag-msmtp:latest
+            ghcr.io/${{ env.GH_OWNER_LC }}/swag-msmtp:${{ env.NEW_VERSION }}
+            ghcr.io/${{ env.GH_OWNER_LC }}/swag-msmtp:${{ env.MAIN_VERSION }}
+            ghcr.io/${{ env.GH_OWNER_LC }}/swag-msmtp:version-${{ env.MAIN_VERSION }}
+            ghcr.io/${{ env.GH_OWNER_LC }}/swag-msmtp:amd64-${{ env.NEW_VERSION }}
+            ghcr.io/${{ env.GH_OWNER_LC }}/swag-msmtp:amd64-${{ env.MAIN_VERSION }}
+            ghcr.io/${{ env.GH_OWNER_LC }}/swag-msmtp:amd64-version-${{ env.MAIN_VERSION }}
+            ghcr.io/${{ env.GH_OWNER_LC }}/swag-msmtp:amd64-latest
